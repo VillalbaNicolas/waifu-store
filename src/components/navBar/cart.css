@@ -1,4 +1,9 @@
 .Cart{
     margin-right: 100px;
     transform: scale(2);
+} 
+
+
+li{
+    color: brown;
 }

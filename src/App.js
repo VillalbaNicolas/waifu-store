@@ -1,11 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from'./components/navBar/navBar.js'
+import Item from './components/itemList/item.js'
 
 function App() {
   return (
     <div className="App">
       <NavBar />
+      <ul>
+        <Item name = 'Raphtalia'/>
+        <Item name = 'Rem'/>
+      </ul>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
