@@ -1,7 +1,22 @@
 .Cart{
-    margin-right: 100px;
-    transform: scale(2);
+    margin-right: 50px;
+    padding-top: 10px;
+    transform: scale(3);
+    width: 50%;
 } 
+
+nav{
+    width: 100%;
+}
+
+.cart-widget, .cart-counter{
+    display: flex ;
+    justify-content: flex-start;
+}
+
+p{
+    padding: 10px;
+}
 
 
 li{
