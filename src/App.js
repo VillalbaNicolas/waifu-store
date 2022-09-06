@@ -1,61 +1,50 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from'./components/navBar/navBar.js'
-import React, {Component, useState} from "react";
+import React, {Component, useEffect, useState} from "react";
 import ItemList from './components/itemList/itemList';
-
-function App() {
- const aux = []
-  var promise1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve([
-        {
-        id: 1,
-        title: 'Raphtalia',
-        description: 'Tate no Yuushan',
-        price: 10000,
-      },
-      {
-        id: 2,
-        title: 'Rem',
-        description: 'Re Zero',
-        price: 10000,
-      },
-    ]);
-    }, 300);
-  })
+import rem from './images/products/rem01.jfif'
+import raph from './images/products/raph01.jfif'
 
 
 
+const productos = async () => {
 
-
-    promise1.then((res) => {
-      console.log(res)
-      aux.push(...res);
-    }); 
- 
-
-/*    const example =  [
-      {
+  const product = [
+    {
       id: 1,
       title: 'Raphtalia',
       description: 'Tate no Yuushan',
       price: 10000,
+      pictureUrl : raph
     },
     {
       id: 2,
       title: 'Rem',
       description: 'Re Zero',
-      price: 10000,
+      price: 20000,
+      pictureUrl : rem
     },
-  ] */
+  ]
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(product);
+      }, 5000);
+    });
+}
 
+function App() {
 
   const [name, setNames] = useState([])
+   useEffect(() => {
+    productos().then((data) => {
+      setNames(data)
+    })
+  },[])
   return (
     <div className="App">
       <NavBar />
-      <ItemList itemsArray = {aux} items = {name} updateItems = {setNames}/>
+      <ItemList items = {name} updateItems = {setNames}/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -70,7 +59,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </div> 
   );
 }
 
