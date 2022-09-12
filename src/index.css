@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+ul{
+  display: flex;
+}
+
 
 li{
   display: inline;
@@ -33,4 +37,16 @@ li{
 
 .disableDetails{
   display: none;
+}
+
+.detail-container{
+  width: 700px;
+}
+
+.detail-info-card{
+  display: flex;
+}
+
+.detail-info-card-icon{
+  width: 50%;
 }

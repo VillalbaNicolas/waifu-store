@@ -1,4 +1,5 @@
-import {useState} from 'react';
+import {useState} from 'react'; 
+import ItemDetail from './itemDetail';
 
 const Item = ({item}) => {
     const [isActive, setIsActive] = useState(false);
@@ -7,15 +8,20 @@ const Item = ({item}) => {
         setIsActive(current => !current);
       };
     return(
-    <li id = {item.id}  className={isActive ? 'activeList' : ''} onClick={handleClick}>
+    <li id = {item.id}   onClick={handleClick}>
         <div>
-            <img src= {item.pictureUrl} alt=""/>
-            <p>{item.title}</p>
-            <div className={isActive ? 'activeDetails' : 'disableDetails'}>
-                <p>{item.description}</p>
-                <p>{item.title}</p>
-                <p>${item.price}</p>
-            </div>
+
+            {isActive ?(
+                <div className="detail-container">
+                    <ItemDetail idItem = {item.id}/>
+                </div>
+            ) : (
+                <div>
+                    <img src= {item.pictureUrl} alt=""/>
+                    <p>{item.title}</p>
+                </div>
+            )}
+            
         </div>
     </li>
     )
