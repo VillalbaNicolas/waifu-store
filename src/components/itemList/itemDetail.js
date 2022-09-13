@@ -39,7 +39,7 @@ const productos = async (id) => {
       });
   }
 
-const ItemDetail = ({idItem}) => {
+const ItemDetail = ({idItem, addProducts}) => {
 
     const [name, setNames] = useState([])
     useEffect(() => {
@@ -49,21 +49,25 @@ const ItemDetail = ({idItem}) => {
    },[])
 
 
+   const updateCart = () => {
+    addProducts(oldValues => [...oldValues, name[0]])
+}
+
     return (
         <div>
             { name[0] ?(
-                    <div className = 'detail-info-card'>
-                        <img src= {name[0].pictureUrl} alt="" className='detail-info-card-icon' />
-                        <div>
-                            <h1>{name[0].title}</h1>
-                            <p>Modelo : {name[0].description.model}</p>
-                            <p>Serie : {name[0].description.serie}</p>
-                            <p>Peso : {name[0].description.weight} gr</p>
-                            <p>Size : {name[0].description.width} cm x {name[0].description.heigh} cm</p>
-                            <p>Precio : ${name[0].price}</p>
-                            <p>BUY</p>
-                        </div>
-                    </div>
+<div className="card mb-3">
+  <img className="card-img-top" src={name[0].pictureUrl} alt="Card image cap"/>
+  <div className="card-body">
+    <h5 className="card-title">Card title</h5>
+    <p className="card-text">Modelo : {name[0].description.model}</p>
+    <p className="card-text">Serie : {name[0].description.serie}</p>
+    <p className="card-text">Peso : {name[0].description.weight} gr</p>
+    <p className="card-text">Size : {name[0].description.width} cm x {name[0].description.heigh} cm</p>
+    <p className="card-text">Precio : ${name[0].price}</p>
+    <button type="button" className="btn btn-primary" onClick={updateCart}>Buy</button>
+  </div>
+  </div>
                 ):(
                     <div>
                     </div>

@@ -36,6 +36,7 @@ const productos = async () => {
 function App() {
 
   const [name, setNames] = useState([])
+  const [cart, setCart] = useState([])
    useEffect(() => {
     productos().then((data) => {
       setNames(data)
@@ -43,8 +44,8 @@ function App() {
   },[])
   return (
     <div className="App">
-      <NavBar />
-      <ItemList items = {name} updateItems = {setNames}/>
+      <NavBar cartProducts = {cart}/>
+      <ItemList items = {name} updateItems = {setNames} addProducts = {setCart}/>
     </div> 
   );
 }

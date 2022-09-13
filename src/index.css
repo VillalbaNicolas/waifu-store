@@ -24,25 +24,6 @@ li{
 }
 
 
-.activeList{
-  padding: 300px;
-  transform: scale(1.5);
-}
-
-
-.activeDetails{
-  display:flex;
-  
-}
-
-.disableDetails{
-  display: none;
-}
-
-.detail-container{
-  width: 700px;
-}
-
 .detail-info-card{
   display: flex;
 }
@@ -50,3 +31,8 @@ li{
 .detail-info-card-icon{
   width: 50%;
 }
+
+.card{
+  width: 18rem;
+}
+
