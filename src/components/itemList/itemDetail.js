@@ -49,7 +49,8 @@ const ItemDetail = ({idItem, addProducts}) => {
    },[])
 
 
-   const updateCart = () => {
+   const updateCart = (event) => {
+    event.stopPropagation();
     addProducts(oldValues => [...oldValues, name[0]])
 }
 

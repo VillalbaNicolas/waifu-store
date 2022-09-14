@@ -8,7 +8,8 @@ const Item = ({item, addProducts}) => {
         setIsActive(current => !current);
       };
 
-      const updateCart = () => {
+      const updateCart = (event) => {
+        event.stopPropagation();
         addProducts(oldValues => [...oldValues, item])
       }
     return(

@@ -42,6 +42,7 @@ function App() {
       setNames(data)
     })
   },[])
+  console.log("cart", cart)
   return (
     <div className="App">
       <NavBar cartProducts = {cart}/>

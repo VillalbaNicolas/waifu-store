@@ -8,7 +8,7 @@ const [number, setCounter] = useState(0)
     return(
         <div className="cart-widget">
             <BsBasket3 className="Cart"/>
-            <p>{cartProducts}</p>
+            <p>{cartProducts.length}</p>
         </div>
     )
 }
